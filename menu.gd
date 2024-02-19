@@ -32,9 +32,16 @@ func get_menu_items():
 			continue
 		items.append(child)
 	return items
+	
+
+func move_cursor(i):
+	var offset = container.rect_position.x
+	sprite.position.x = menu_items[i].rect_position.x + offset - 8
+	#print(str(i) + ":" + str(sprite.position.x))
 
 func set_focus():
 	menu_items[i_default_focus].grab_focus()
+	move_cursor(i_default_focus)
 
 func configure_focus():
 	var iprev
@@ -70,10 +77,10 @@ func _ready():
 func _on_focus_changed(item):
 	if item in menu_items:
 		sprite.visible = true
-		$Sprite.position.x = item.rect_position.x + item.rect_size.x * 0.4
 		current_focus = item
 		i_current_focus = menu_items.find(item)
 		i_default_focus = i_current_focus # remember choices
+		move_cursor(i_current_focus)
 	else:
 		sprite.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.

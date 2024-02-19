@@ -3,7 +3,9 @@ extends Node
 onready var rng = RandomNumberGenerator.new()
 
 var deaths = 0
-var stage = 0
+var stage = 1 # read from persistent object
+var difficulty_unlocked = 0 # read from persistent object
+var highest_seen_level = 1  # read from persistent object
 
 const d = 32
 const y0 = 0
@@ -14,9 +16,7 @@ var grid = []
 const nx = 14
 const ny = 12
 
-
-var difficulty_unlocked = 0 # read from persistent object
-var highest_seen_level = 1  # read from persistent object
+const savefilename = "user://save.json"
 
 var reset_when_unpaused = false
 
@@ -333,6 +333,34 @@ func load_lastscore():
 	else:
 		return INF
 	return farr[-1]
+
+func read_from_save():
+	var file = File.new()
+	var err = file.open(savefilename, File.READ)
+	var tmp = {}
+	if err == OK:
+		var tmpstr = file.get_as_text()
+		file.close()
+		print(tmpstr)
+		tmp = parse_json(tmpstr)
+		global.difficulty_unlocked = tmp["difficulty_unlocked"]
+		global.highest_seen_level = tmp["highest_seen_level"]
+		global.stage = tmp["stage"]
+	else:
+		print("No save data, using defaults.")
+		
+	
+		
+func write_to_save():
+	var file = File.new()
+	var err = file.open(savefilename, File.WRITE)
+	if err == OK:
+		var tmpdict = {"stage" : global.stage}
+		tmpdict["difficulty_unlocked"] = global.difficulty_unlocked
+		tmpdict["highest_seen_level"] = global.highest_seen_level
+		file.store_string(to_json(tmpdict))
+		file.close()
+	
 
 func save_score(time):
 	var file = File.new()

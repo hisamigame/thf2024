@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://break_shader.gshader.gdshader" type="Shader" id=1]
 [ext_resource path="res://holes.png" type="Texture" id=2]
@@ -64,6 +64,43 @@ shader = SubResource( 28 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment(){
+	vec4 color =  texture(TEXTURE,UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR=color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=37]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=39]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
 [sub_resource type="TileSet" id=1]
 1/name = "holes.png 0"
 1/texture = ExtResource( 2 )
@@ -91,7 +128,7 @@ shader_param/flash_modifier = 0.0
 
 [node name="world" type="Node2D"]
 script = ExtResource( 5 )
-message = "Corner to corner"
+message = "WORLD17_0"
 
 [node name="UI" parent="." instance=ExtResource( 12 )]
 
@@ -125,15 +162,19 @@ position = Vector2( 80, 112 )
 position = Vector2( 368, 176 )
 
 [node name="block" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 37 )
 position = Vector2( 144, 240 )
 
 [node name="block2" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 38 )
 position = Vector2( 176, 272 )
 
 [node name="block3" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 39 )
 position = Vector2( 112, 272 )
 
 [node name="block4" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 40 )
 position = Vector2( 144, 304 )
 
 [node name="holegrid" type="TileMap" parent="."]

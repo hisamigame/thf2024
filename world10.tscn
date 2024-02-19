@@ -121,7 +121,7 @@ shader_param/flash_modifier = 0.0
 
 [node name="world" type="Node2D"]
 script = ExtResource( 6 )
-message = "Pushover"
+message = "WORLD10_0"
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
 

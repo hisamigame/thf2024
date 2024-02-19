@@ -122,7 +122,7 @@ shader_param/mask = ExtResource( 12 )
 [node name="world" type="Node2D"]
 script = ExtResource( 8 )
 flavor = 1
-message = "Bind to push"
+message = "WORLD8_0"
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 

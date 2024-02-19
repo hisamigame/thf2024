@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://titleScreenNEW.gd" type="Script" id=1]
 [ext_resource path="res://title_screen.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://mago3.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://mainMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://difficultyMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levelMenu.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=3]
 size = 29
@@ -72,6 +73,14 @@ visible = false
 margin_top = -87.752
 margin_bottom = -87.752
 
+[node name="levelMenu" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = 10.0
+margin_top = 35.0
+margin_right = 442.0
+margin_bottom = 235.0
+
 [connection signal="finished" from="start" to="." method="_on_start_finished"]
 [connection signal="item_selected" from="mainMenu" to="." method="_on_mainMenu_item_selected"]
 [connection signal="item_selected" from="difficultyMenu" to="." method="_on_difficultyMenu_item_selected"]
+[connection signal="item_selected" from="levelMenu" to="." method="_on_levelMenu_item_selected"]

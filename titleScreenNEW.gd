@@ -15,8 +15,8 @@ var top_menu_choice = null
 var difficulty_menu_choice = null
 
 func _ready():
+	global.read_from_save()
 	var arr = global.load_hiscores()
-	print(arr)
 	if !(len(arr) == 0 or (len(arr)==1 and arr[0] == 0)):
 		var hiscore = arr.min()
 	
@@ -28,15 +28,18 @@ func _ready():
 	# since the singleton otherwise will remember
 	# and we have to always return to the title screen between games.
 	global.deaths = 0
-	global.stage = 1
 	global.spause = false
 	global.message = "Ready?"
 	global.movementPressOrder = [0]
 	global.new_level = false
-	global.difficulty_unlocked = 2 # TODO READ IN PERSISTENT
-	global.stage = 1 # TODO READ IN PERSISTENT
 	$difficultyMenu.unlock_difficulties()
 	$difficultyMenu.previous_menu = $mainMenu
+	if global.difficulty_unlocked > 0:
+		$levelMenu.previous_menu = $difficultyMenu
+	else:
+		$levelMenu.previous_menu = $mainMenu
+	if global.stage == 1:
+		$mainMenu.hide_cont()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -50,6 +53,7 @@ func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_accept") and startable:
 		$mainMenu.visible = true
 		$mainMenu.set_focus()
+		$mainMenu.move_cursor($mainMenu.i_current_focus)
 		startable = false
 		set_process(true)
 
@@ -71,9 +75,20 @@ func _on_start_finished():
 func _on_mainMenu_item_selected(item):
 	top_menu_choice = item.text
 	match top_menu_choice:
-		'New Game', 'Select level':
-			$difficultyMenu.visible = true
-			$difficultyMenu.set_focus()
+		'New Game':
+			if global.difficulty_unlocked > 0:
+				$difficultyMenu.visible = true
+				$difficultyMenu.set_focus()
+			else:
+				$start.play()
+		'Select level':
+			if global.difficulty_unlocked > 0:
+				$difficultyMenu.visible = true
+				$difficultyMenu.set_focus()
+			else:
+				$levelMenu.set_level_titles()
+				$levelMenu.visible = true
+				$levelMenu.set_focus()
 		'Continue':
 			$start.play() 
 		'Gallery':
@@ -88,11 +103,23 @@ func _on_difficultyMenu_item_selected(item):
 			'Normal':
 				global.stage = 1
 			'Hard':
-				global.stage = 21
+				global.stage = 101
 			'Lunatic':
-				global.stage = 41
+				global.stage = 201
 				
 		$start.play()
 	elif top_menu_choice == 'Select level':
 		# TODO show level select with right difficulty
-		pass
+		$levelMenu.difficulty = difficulty_menu_choice
+		$levelMenu.set_level_titles()
+		$levelMenu.visible = true
+		$levelMenu.set_focus()
+
+
+func _on_levelMenu_item_selected(item):
+	var level = item.text.split('_')[0].substr(5)
+	global.music_fade()
+	global.time_start = OS.get_ticks_msec()
+	var _ret = get_tree().change_scene("res://world" + level + ".tscn")
+	
+	

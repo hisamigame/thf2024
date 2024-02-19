@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://selectionArrow.png" type="Texture" id=3]
+[ext_resource path="res://mainMenu.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -21,6 +22,7 @@ animations = [ {
 } ]
 
 [node name="mainMenu" instance=ExtResource( 2 )]
+script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="HBoxContainer" index="0"]
 margin_top = 34.0
@@ -29,7 +31,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
 custom_fonts/font = ExtResource( 1 )
-text = "Continue"
+text = "New Game"
 
 [node name="Label2" type="Label" parent="HBoxContainer" index="1"]
 margin_left = 104.0
@@ -39,7 +41,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
 custom_fonts/font = ExtResource( 1 )
-text = "New Game"
+text = "Continue"
 
 [node name="Label3" type="Label" parent="HBoxContainer" index="2"]
 margin_left = 208.0

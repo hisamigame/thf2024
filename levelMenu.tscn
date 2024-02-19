@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levelMenu.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://selectionArrow.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 10, 0, 10, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="levelMenu" type="ColorRect"]
+margin_right = 432.0
+margin_bottom = 200.0
+color = Color( 0, 0, 0, 0.819608 )
+script = ExtResource( 1 )
+
+[node name="GridContainer" type="HSplitContainer" parent="."]
+anchor_left = 0.1
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_left = -35.2
+margin_right = 14.1
+size_flags_horizontal = 2
+size_flags_vertical = 0
+dragger_visibility = 2
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="GridContainer"]
+margin_left = 45.0
+margin_right = 208.0
+margin_bottom = 200.0
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_right = 163.0
+margin_bottom = 16.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge in a te"
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 20.0
+margin_right = 163.0
+margin_bottom = 36.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 40.0
+margin_right = 163.0
+margin_bottom = 56.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 60.0
+margin_right = 163.0
+margin_bottom = 76.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 80.0
+margin_right = 163.0
+margin_bottom = 96.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 100.0
+margin_right = 163.0
+margin_bottom = 116.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 120.0
+margin_right = 163.0
+margin_bottom = 136.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label8" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 140.0
+margin_right = 163.0
+margin_bottom = 156.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label9" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 160.0
+margin_right = 163.0
+margin_bottom = 176.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="Label10" type="Label" parent="GridContainer/VBoxContainer1"]
+margin_top = 180.0
+margin_right = 163.0
+margin_bottom = 196.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1: Over the edge"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GridContainer"]
+margin_left = 230.5
+margin_right = 416.5
+margin_bottom = 200.0
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_right = 186.0
+margin_bottom = 16.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label2" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 20.0
+margin_right = 186.0
+margin_bottom = 36.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label3" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 40.0
+margin_right = 186.0
+margin_bottom = 56.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label4" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 60.0
+margin_right = 186.0
+margin_bottom = 76.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label5" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 80.0
+margin_right = 186.0
+margin_bottom = 96.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label6" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 100.0
+margin_right = 186.0
+margin_bottom = 116.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label7" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 120.0
+margin_right = 186.0
+margin_bottom = 136.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label8" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 140.0
+margin_right = 186.0
+margin_bottom = 156.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label9" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 160.0
+margin_right = 186.0
+margin_bottom = 176.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Label10" type="Label" parent="GridContainer/VBoxContainer2"]
+margin_top = 180.0
+margin_right = 186.0
+margin_bottom = 196.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Level 11: We are goblin japonese"
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 38, 43.248 )
+frames = SubResource( 3 )
+playing = true

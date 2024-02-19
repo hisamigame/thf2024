@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Hisami block game"
-run/main_scene="res://titleScreen.tscn"
+run/main_scene="res://titleScreenNEW.tscn"
 boot_splash/image="res://title_screen.png"
 config/icon="res://icon.png"
 

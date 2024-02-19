@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://break_shader.gshader.gdshader" type="Shader" id=1]
 [ext_resource path="res://holes.png" type="Texture" id=2]
@@ -46,6 +46,67 @@ shader_param/flash_color = Color( 0.427451, 0.196078, 0.458824, 1 )
 shader_param/flash_modifier = 0.0
 shader_param/mask = ExtResource( 3 )
 
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment(){
+	vec4 color =  texture(TEXTURE,UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR=color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=36]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=37]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=39]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=41]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
 [sub_resource type="TileSet" id=1]
 1/name = "holes.png 0"
 1/texture = ExtResource( 2 )
@@ -74,7 +135,7 @@ shader_param/mask = ExtResource( 3 )
 [node name="world" type="Node2D"]
 script = ExtResource( 5 )
 flavor = 1
-message = "Blocks and buttons"
+message = "WORLD6_0"
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
 
@@ -107,27 +168,35 @@ position = Vector2( 112, 176 )
 position = Vector2( 240, 336 )
 
 [node name="block" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 36 )
 position = Vector2( 48, 336 )
 
 [node name="block2" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 37 )
 position = Vector2( 304, 336 )
 
 [node name="block3" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 38 )
 position = Vector2( 272, 336 )
 
 [node name="block4" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 39 )
 position = Vector2( 208, 336 )
 
 [node name="block5" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 40 )
 position = Vector2( 304, 368 )
 
 [node name="block6" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 41 )
 position = Vector2( 272, 368 )
 
 [node name="block7" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 42 )
 position = Vector2( 208, 368 )
 
 [node name="block8" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 43 )
 position = Vector2( 48, 368 )
 
 [node name="holegrid" type="TileMap" parent="."]

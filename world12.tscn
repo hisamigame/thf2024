@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://break_shader.gshader.gdshader" type="Shader" id=1]
 [ext_resource path="res://holes.png" type="Texture" id=2]
@@ -36,6 +36,73 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment(){
+	vec4 color =  texture(TEXTURE,UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR=color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=36]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=37]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=39]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=41]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = SubResource( 14 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
 [sub_resource type="ShaderMaterial" id=34]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
@@ -71,7 +138,7 @@ shader_param/mask = ExtResource( 3 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 5 )
-message = "Unblockable"
+message = "WORLD12_0"
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
 
@@ -90,30 +157,39 @@ tile_data = PoolIntArray( 131073, 0, 0, 131074, 0, 3, 131075, 0, 2, 131076, 0, 3
 tile_data = PoolIntArray( 0, 0, 8, 1, 0, 10, 2, 0, 10, 3, 0, 10, 4, 0, 10, 5, 0, 10, 6, 0, 10, 7, 0, 10, 8, 0, 10, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 10, 13, 0, 11, 65536, 0, 131076, 65537, 0, 196617, 65538, 0, 196618, 65539, 0, 196617, 65540, 0, 196617, 65541, 0, 196617, 65542, 0, 196617, 65543, 0, 196617, 65544, 0, 196617, 65545, 0, 196617, 65546, 0, 196617, 65547, 0, 196617, 65548, 0, 196617, 65549, 0, 131079, 131072, 0, 65536, 131074, 0, 65536, 131085, 0, 65536, 196608, 0, 65536, 196610, 0, 65536, 196621, 0, 65536, 262144, 0, 65536, 262146, 0, 131072, 262157, 0, 65536, 327680, 0, 65536, 327693, 0, 65536, 393216, 0, 65536, 393229, 0, 65536, 458752, 0, 65536, 458765, 0, 65536, 524288, 0, 65536, 524301, 0, 65536, 589824, 0, 65536, 589837, 0, 65536, 655360, 0, 65536, 655373, 0, 65536, 720896, 0, 65536, 720909, 0, 65536, 786432, 0, 65536, 786445, 0, 65536, 851968, 0, 131073, 851969, 0, 196610, 851970, 0, 196610, 851971, 0, 196610, 851972, 0, 196610, 851973, 0, 196610, 851974, 0, 196610, 851975, 0, 196610, 851976, 0, 196610, 851977, 0, 196610, 851978, 0, 196610, 851979, 0, 196610, 851980, 0, 196610, 851981, 0, 131075 )
 
 [node name="block3" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 36 )
 position = Vector2( 368, 304 )
 
 [node name="block6" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 37 )
 position = Vector2( 208, 240 )
 
 [node name="block8" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 38 )
 position = Vector2( 400, 304 )
 
 [node name="block13" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 39 )
 position = Vector2( 48, 176 )
 
 [node name="block15" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 40 )
 position = Vector2( 80, 208 )
 
 [node name="block16" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 41 )
 position = Vector2( 48, 240 )
 
 [node name="block17" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 42 )
 position = Vector2( 48, 208 )
 
 [node name="block10" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 43 )
 position = Vector2( 80, 240 )
 
 [node name="block11" parent="YSort/grid" instance=ExtResource( 6 )]
+material = SubResource( 44 )
 position = Vector2( 80, 176 )
 
 [node name="goal" parent="YSort/grid" instance=ExtResource( 10 )]

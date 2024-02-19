@@ -133,7 +133,7 @@ shader_param/flash_modifier = 0.0
 [node name="world" type="Node2D"]
 script = ExtResource( 5 )
 flavor = 1
-message = "Compact"
+message = "WORLD15_0"
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
 margin_left = 304.0

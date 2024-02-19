@@ -37,6 +37,9 @@ func set_day():
 
 func _ready():
 	global.stage = int(get_tree().current_scene.filename.split('.')[0].split('world')[-1])
+	if global.stage > global.highest_seen_level:
+		global.highest_seen_level = global.stage
+	global.write_to_save()
 	global.unpause_music()
 	global.softpause()
 	#$UI.flavor = flavor
