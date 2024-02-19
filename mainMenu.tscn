@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://selectionArrow.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 10, 0, 10, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="mainMenu" instance=ExtResource( 2 )]
+
+[node name="Label" type="Label" parent="HBoxContainer" index="0"]
+margin_top = 34.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Continue"
+
+[node name="Label2" type="Label" parent="HBoxContainer" index="1"]
+margin_left = 104.0
+margin_top = 34.0
+margin_right = 204.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "New Game"
+
+[node name="Label3" type="Label" parent="HBoxContainer" index="2"]
+margin_left = 208.0
+margin_top = 34.0
+margin_right = 308.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Select level"
+
+[node name="Label4" type="Label" parent="HBoxContainer" index="3"]
+margin_left = 312.0
+margin_top = 34.0
+margin_right = 412.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Gallery"
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+position = Vector2( 38, 43.248 )
+frames = SubResource( 3 )
+frame = 1
+playing = true

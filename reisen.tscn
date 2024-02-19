@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://rabbit_placeholder.png" type="Texture" id=1]
+[ext_resource path="res://reisen.gd" type="Script" id=2]
+[ext_resource path="res://laser.png" type="Texture" id=3]
+[ext_resource path="res://reisenlaser.gdshader" type="Shader" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 20, 0, 20, 20 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 40, 0, 20, 20 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/v = 0.1
+shader_param/t0 = 0.0
+shader_param/time = 0.0
+shader_param/width = 0.05
+shader_param/ampl = 0.06
+
+[node name="reisen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+flip_h = true
+
+[node name="laser" type="Sprite" parent="."]
+visible = false
+material = SubResource( 6 )
+position = Vector2( -208, -1 )
+scale = Vector2( 408.25, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

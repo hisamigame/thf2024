@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://intro2.gd" type="Script" id=1]
+[ext_resource path="res://intro_scene_2.png" type="Texture" id=2]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://bobbingIcons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://langauageControls.tscn" type="PackedScene" id=5]
+
+[node name="intro2" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="langauageControls" parent="." instance=ExtResource( 5 )]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 448.0
+margin_bottom = 96.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 448.0
+margin_bottom = 72.0
+
+[node name="text" type="Label" parent="CenterContainer"]
+margin_left = 206.0
+margin_top = 28.0
+margin_right = 242.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( -273, 14 )
+custom_fonts/font = ExtResource( 3 )
+text = "INTRO2"
+align = 1
+
+[node name="bobbingIcons" parent="." instance=ExtResource( 4 )]
+margin_left = 208.0
+margin_right = 336.0

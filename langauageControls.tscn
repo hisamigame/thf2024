@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://japanese.png" type="Texture" id=1]
+[ext_resource path="res://L.png" type="Texture" id=2]
+[ext_resource path="res://english.png" type="Texture" id=3]
+[ext_resource path="res://langArrow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://langauageControls.gd" type="Script" id=5]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 96, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 96, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="langauageControls" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="langArrow" parent="." instance=ExtResource( 4 )]
+position = Vector2( 302, 354 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="language" type="AnimatedSprite" parent="."]
+position = Vector2( 392, 352 )
+frames = SubResource( 6 )
+
+[node name="L" type="Sprite" parent="."]
+position = Vector2( 328, 354 )
+texture = ExtResource( 2 )

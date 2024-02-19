@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://doomtransition.gd" type="Script" id=1]
+[ext_resource path="res://doomtransition.gdshader" type="Shader" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=4]
+
+[sub_resource type="NoiseTexture" id=3]
+width = 448
+height = 416
+noise = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/timer = 0.0
+shader_param/melting = false
+shader_param/noise = SubResource( 3 )
+
+[node name="doomtransition" type="ColorRect"]
+material = SubResource( 2 )
+margin_right = 448.0
+margin_bottom = 416.0
+script = ExtResource( 1 )

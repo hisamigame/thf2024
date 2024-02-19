@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://wall1x1.png" type="Texture" id=1]
+[ext_resource path="res://wall.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14, 14 )
+
+[node name="wall" type="Node2D" groups=["Grabable", "Pushable"]]
+script = ExtResource( 2 )
+type = 0
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="pivot"]
+texture = ExtResource( 1 )
+region_rect = Rect2( 7, 9, 16, 16 )
+region_filter_clip = true
+
+[node name="Area2D" type="Area2D" parent="pivot"]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/Area2D"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="pivot/Area2D" to="." method="_on_Area2D_area_entered"]
