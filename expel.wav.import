@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/expel.wav-90f9a05243e09b452bb66f5140d4fbfe.sample"
+
+[deps]
+
+source_file="res://expel.wav"
+dest_files=[ "res://.import/expel.wav-90f9a05243e09b452bb66f5140d4fbfe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

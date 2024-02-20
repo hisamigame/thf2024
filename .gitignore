@@ -1,0 +1,6 @@
+# Godot-specific ignores, from https://github.com/github/gitignore/blob/main/Godot.gitignore
+.import/
+.mono/
+export.cfg
+export_presets.cfg
+*~
