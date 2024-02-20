@@ -24,46 +24,55 @@ animations = [ {
 [node name="mainMenu" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
 
+[node name="HBoxContainer" parent="." index="0"]
+margin_left = -12.8
+margin_right = 38.4
+margin_bottom = -0.247986
+
 [node name="Label" type="Label" parent="HBoxContainer" index="0"]
 margin_top = 34.0
 margin_right = 102.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "MENU_NEW_GAME"
 
 [node name="Label2" type="Label" parent="HBoxContainer" index="1"]
 margin_left = 106.0
 margin_top = 34.0
-margin_right = 206.0
+margin_right = 208.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "MENU_CONTINUE"
 
 [node name="Label3" type="Label" parent="HBoxContainer" index="2"]
-margin_left = 210.0
+margin_left = 212.0
 margin_top = 34.0
-margin_right = 324.0
+margin_right = 326.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "MENU_SELECT_LEVEL"
 
 [node name="Label4" type="Label" parent="HBoxContainer" index="3"]
-margin_left = 328.0
+margin_left = 330.0
 margin_top = 34.0
-margin_right = 428.0
+margin_right = 432.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 0 )
 focus_mode = 2
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "MENU_GALLERY"
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="1"]
-position = Vector2( 38, 43.248 )
+position = Vector2( 24, 43.248 )
 frames = SubResource( 3 )
 playing = true
