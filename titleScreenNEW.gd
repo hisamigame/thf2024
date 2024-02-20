@@ -75,13 +75,14 @@ func _on_start_finished():
 func _on_mainMenu_item_selected(item):
 	top_menu_choice = item.text
 	match top_menu_choice:
-		'New Game':
+		'MENU_NEW_GAME':
 			if global.difficulty_unlocked > 0:
 				$difficultyMenu.visible = true
 				$difficultyMenu.set_focus()
 			else:
+				global.stage = 1
 				$start.play()
-		'Select level':
+		'MENU_SELECT_LEVEL':
 			if global.difficulty_unlocked > 0:
 				$difficultyMenu.visible = true
 				$difficultyMenu.set_focus()
@@ -89,9 +90,9 @@ func _on_mainMenu_item_selected(item):
 				$levelMenu.set_level_titles()
 				$levelMenu.visible = true
 				$levelMenu.set_focus()
-		'Continue':
+		'MENU_CONTINUE':
 			$start.play() 
-		'Gallery':
+		'MENU_GALLERY':
 			# TODO show gallery menu
 			pass
 

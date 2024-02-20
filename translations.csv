@@ -1,12 +1,16 @@
 keys,en,ja
+MENU_NEW_GAME,New Game,最初から
+MENU_CONTINUE,Continue,途中から
+MENU_SELECT_LEVEL,Select Level,ステージセレクト
+MENU_GALLERY,Gallery,ギャラリー
 INTRO1,"In this world, there are those whose names\nhave been struck from the Register of Death.\nHell has no jurisdiction over them.\nNo afterlife will ever accept them,\nfor they are truly immortal.","この世には、生死簿に\n名前が乗っていない者もいる。\n彼岸の管轄から逃れて、\n成仏できずに生きてゆく。\nまさしく不老不死である。"
 INTRO2,"I'll drag them to hell\nand have Zanmu scold me!","あいつらを地獄へ引きずり込んで、\n残無様に叱ってもらう！"
-WORLD1_0,Movement and pushing,Movement and pushing
+WORLD1_0,Movement and pushing,動いたり押したり
 WORLD1_1,Move,移動
 WORLD1_2,Only the last block\ngrabbed by each vine\ncan grab new blocks.,最後に持ったブロックのみで\n新ブロックを採れる。
-WORLD2_0,Grab distant objects,Grab distant objects
+WORLD2_0,Grab distant objects,つるで遠い物を採りましょう
 WORLD2_1,Shoot vine,つるを伸ばす
-WORLD3_0,Failure is an option,Failure is an option
+WORLD3_0,Failure is an option,失敗しても最初から
 WORLD3_1,Reset level,リトライ
 WORLD4_0,Excess,Excess
 WORLD5_0,Crooked hooking,Crooked hooking
