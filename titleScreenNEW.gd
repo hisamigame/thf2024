@@ -80,6 +80,7 @@ func _on_mainMenu_item_selected(item):
 				$difficultyMenu.visible = true
 				$difficultyMenu.set_focus()
 			else:
+				global.stage = 1
 				$start.play()
 		'Select level':
 			if global.difficulty_unlocked > 0:
