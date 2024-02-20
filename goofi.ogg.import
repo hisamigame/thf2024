@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/goofi.ogg-af7a59277799edcca8b522598ade1d5e.oggstr"
+
+[deps]
+
+source_file="res://goofi.ogg"
+dest_files=[ "res://.import/goofi.ogg-af7a59277799edcca8b522598ade1d5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=25.6
