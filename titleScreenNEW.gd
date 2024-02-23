@@ -38,7 +38,7 @@ func _ready():
 		$levelMenu.previous_menu = $difficultyMenu
 	else:
 		$levelMenu.previous_menu = $mainMenu
-	if global.stage == 1:
+	if global.stage == 1 or global.stage == 101 or global.stage == 201:
 		$mainMenu.hide_cont()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

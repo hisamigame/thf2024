@@ -63,19 +63,27 @@ func to_next_stage():
 	if global.next_level_exists():
 		$AnimationPlayer.play("stageTransitionIn")
 	else:
-		$AnimationPlayer.play("endingTransition")
+		if global.stage < 100:
+			# Normal clear
+			$AnimationPlayer.play("endingTransition")
+		elif global.stage < 200:
+			# Hard clear
+			$AnimationPlayer.play("endingTransitionH")
+		else:
+			# Lunatic clear
+			$AnimationPlayer.play("endingTransitionL")
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "stageTransitionIn":
-		#global.softpause()
-		
-		global.actually_change_level2()
-	elif anim_name == "endingTransition":
-		#global.softpause()
-		global.end_game()
-	elif anim_name == "stageTransitionOut":
-		global.can_unsoftpause = true
+	match anim_name:
+		"stageTransitionIn":
+			#global.softpause()
+			global.actually_change_level2()
+		"endingTransition", "endingTransitionH", "endingTransitionL":
+			#global.softpause()
+			global.end_game()
+		"stageTransitionOut":
+			global.can_unsoftpause = true
 
 func show_spell():
 	$AnimationPlayer.play("spell")

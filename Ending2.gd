@@ -11,10 +11,10 @@ var score = 0
 # Called when the node enters the scene tree for the first time.
 
 func any_input():
-	return Input.is_action_just_pressed('ui_down') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('shoot_down') or Input.is_action_just_pressed('shoot_up') or Input.is_action_just_pressed('shoot_left') or Input.is_action_just_pressed('shoot_right')
+	return Input.is_action_just_pressed('ui_accept') or Input.is_action_just_pressed('ui_down') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('shoot_down') or Input.is_action_just_pressed('shoot_up') or Input.is_action_just_pressed('shoot_left') or Input.is_action_just_pressed('shoot_right')
 
 func any_input_pressed():
-	return Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_right') or Input.is_action_pressed('shoot_down') or Input.is_action_pressed('shoot_up') or Input.is_action_pressed('shoot_left') or Input.is_action_pressed('shoot_right')
+	return Input.is_action_pressed('ui_accept') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_right') or Input.is_action_pressed('shoot_down') or Input.is_action_pressed('shoot_up') or Input.is_action_pressed('shoot_left') or Input.is_action_pressed('shoot_right')
 
 
 func _ready():
@@ -23,5 +23,5 @@ func _ready():
 
 func _process(_delta):
 	if	startable && any_input():
-		var _ret = get_tree().change_scene("res://titleScreen.tscn")	
+		var _ret = get_tree().change_scene("res://titleScreenNEW.tscn")	
 	startable = true

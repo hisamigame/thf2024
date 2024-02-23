@@ -17,7 +17,7 @@ func _ready():
 	global.stage=20
 
 func _process(_delta):
-	player_y = get_parent().get_node("grid/hisami").cell.y
+	player_y = get_parent().get_node("YSort/grid/hisami").cell.y
 	y = clamp(player_y,ymax, ymin)
 	fade_level = (y - ymin)/(ymax-ymin)
 	$TextureRect.color.a = fade_level

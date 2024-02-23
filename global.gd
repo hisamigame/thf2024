@@ -155,7 +155,15 @@ func change_level2():
 	emit_signal("next_stage2")
 	
 func end_game():
-	var _unused = get_tree().change_scene("res://Ending1.tscn")
+	if stage < 100:
+		var _unused = get_tree().change_scene("res://Ending1.tscn")
+		global.stage = 101
+	if stage < 200:
+		var _unused = get_tree().change_scene("res://EndingH1.tscn")
+		global.stage = 201
+	else:
+		var _unused = get_tree().change_scene("res://EndingL1.tscn")
+		global.stage = 1
 	
 func play_language():
 	#if !$expel.playing:

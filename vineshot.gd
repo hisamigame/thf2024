@@ -113,6 +113,7 @@ func sub_resolve():
 	else:
 		# loop again to correct for nomove
 		# after delay seconds
+		print("we looping")
 		finished = false
 		$Timer.start(delay_seconds)
 	return finished

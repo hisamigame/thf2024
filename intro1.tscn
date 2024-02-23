@@ -33,5 +33,6 @@ text = "INTRO1"
 align = 1
 
 [node name="bobbingIcons" parent="." instance=ExtResource( 4 )]
+visible = false
 margin_left = 208.0
 margin_right = 336.0

@@ -35,10 +35,10 @@ func update_maxchar():
 	maxchar = len(text.text)
 
 func any_input():
-	return Input.is_action_just_pressed('ui_down') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('shoot_down') or Input.is_action_just_pressed('shoot_up') or Input.is_action_just_pressed('shoot_left') or Input.is_action_just_pressed('shoot_right')
+	return Input.is_action_just_pressed('ui_accept') or Input.is_action_just_pressed('ui_down') or Input.is_action_just_pressed('ui_up') or Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right') or Input.is_action_just_pressed('shoot_down') or Input.is_action_just_pressed('shoot_up') or Input.is_action_just_pressed('shoot_left') or Input.is_action_just_pressed('shoot_right')
 
 func any_input_pressed():
-	return Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_right') or Input.is_action_pressed('shoot_down') or Input.is_action_pressed('shoot_up') or Input.is_action_pressed('shoot_left') or Input.is_action_pressed('shoot_right')
+	return Input.is_action_pressed('ui_accept') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_right') or Input.is_action_pressed('shoot_down') or Input.is_action_pressed('shoot_up') or Input.is_action_pressed('shoot_left') or Input.is_action_pressed('shoot_right')
 
 
 func _process(delta):
