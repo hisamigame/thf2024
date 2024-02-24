@@ -40,3 +40,6 @@ func generate_offsets():
 func transition():
 	self.material.set_shader_param("melting", true)
 	melting = true
+
+func change_level():
+	global.actually_change_level()

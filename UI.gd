@@ -6,7 +6,7 @@ extends Control
 # var b = "text"
 
 
-enum FLAVORS {MOKOU, KAGUYA}
+enum FLAVORS {MOKOU, KAGUYA, REISEN, ZANMU}
 
 onready var level_clear_image = $CanvasLayer/TextureRect
 onready var label = $CanvasLayer/CenterContainer/Label
@@ -26,10 +26,15 @@ func view_message():
 
 func update_texture(flavor):
 	var texture
-	if flavor == FLAVORS.MOKOU:
-		texture = load("res://Level_transition_M.png")
-	else:
-		texture = load("res://Level_transition_K.png")
+	match flavor:
+		FLAVORS.MOKOU:
+			texture = load("res://Level_transition_M.png")
+		FLAVORS.KAGUYA:
+			texture = load("res://Level_transition_K.png")
+		FLAVORS.REISEN:
+			texture = load("res://redeyes_placeholder.png")
+		FLAVORS.ZANMU:
+			texture = load("res://redeyes_placeholder.png")
 	level_clear_image.texture = texture
 
 func _ready():
