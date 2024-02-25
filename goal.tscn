@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://goal.gd" type="Script" id=1]
 [ext_resource path="res://moocow.png" type="Texture" id=2]
@@ -75,6 +75,14 @@ region = Rect2( 128, 0, 32, 48 )
 atlas = ExtResource( 2 )
 region = Rect2( 160, 0, 32, 48 )
 
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 48 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
@@ -91,6 +99,11 @@ animations = [ {
 "loop": true,
 "name": "mokou",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "zanmu",
+"speed": 5.0
 } ]
 
 [node name="goal" type="Node2D"]
@@ -105,7 +118,6 @@ use_parent_material = true
 use_parent_material = true
 frames = SubResource( 1 )
 animation = "kaguya"
-frame = 2
 playing = true
 offset = Vector2( 0, -8 )
 

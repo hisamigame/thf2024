@@ -226,7 +226,6 @@ visible_cable = false
 use_parent_material = true
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="hurtbox" type="Area2D" parent="pivot"]

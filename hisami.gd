@@ -165,10 +165,6 @@ func _process(delta):
 				movement()
 			else:
 				sprite.play("idle")
-			
-			# kill after movement
-			
-			
 		else:
 			wait_seconds = wait_seconds + delta
 			if wait_seconds >= global.seconds_per_move:
@@ -222,6 +218,7 @@ func end_shooting_state(hit_object):
 func end_pull_state():
 	#if state != FALL:
 	state = NORMAL
+	print("END PULLED STATE")
 	show_head()
 	grid.get_highest_index_vinecell(vector2state(shoot_direction), cloneID).show_head()
 		

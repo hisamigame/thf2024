@@ -5,7 +5,7 @@ extends "res://gridObject.gd"
 # var a = 2
 # var b = "text"
 
-enum FLAVORS {MOKOU, KAGUYA}
+enum FLAVORS {MOKOU, KAGUYA, REISEN, ZANMU}
 
 export(FLAVORS) var flavor = FLAVORS.MOKOU
 
@@ -61,10 +61,13 @@ func move_to(next_cell, animlen):
 
 
 func update_sprite():
-	if flavor == FLAVORS.MOKOU:
-		sprite.play("mokou")
-	else:
-		sprite.play("kaguya")
+	match flavor:
+		FLAVORS.MOKOU:
+			sprite.play("mokou")
+		FLAVORS.KAGUYA:
+			sprite.play("kaguya")
+		FLAVORS.ZANMU:
+			sprite.play("zanmu")
 
 func fall():
 	global.show_reset()

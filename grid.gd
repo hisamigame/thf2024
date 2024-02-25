@@ -116,7 +116,7 @@ func set_day():
 			child.set_day()
 
 func request_shoot(requester, direction, ultimate_requester):
-	any_unpushables = false
+	any_unpushables = true
 	
 	var state = DIRECTION.NOT_YET
 	if direction == Vector2.LEFT:
@@ -246,6 +246,7 @@ func request_move_player(player, direction):
 	var end_cell
 	var start_cell
 	var animlen
+	var didgrab = false
 	if player.flying:
 		animlen = global.seconds_per_move/2
 	else:
@@ -255,7 +256,6 @@ func request_move_player(player, direction):
 	for mover in movers:
 		start_cells.append(mover.cell)
 		end_cells.append(get_end_cell(mover, direction))
-	
 	
 	# by default, assume we can move and check for the opposite
 	var can_move = true
@@ -301,10 +301,11 @@ func request_move_player(player, direction):
 					#print(end_cell_id)
 				if obj.grabable:
 					# returns true if grabbed
-					if grab(movers[i], obj, direction):
+					didgrab = grab(movers[i], obj, direction)
+					if didgrab:
 						can_move = false
 						
-				if can_move: # as a cheap check to see if didnt grabbed anything
+				if not didgrab:
 					if obj.pushable:
 						to_push.append(obj)
 					else:
@@ -437,6 +438,7 @@ func actually_move():
 func hookshot_move(obj, direction):
 	var end_cell = get_end_cell(obj, direction)
 	var start_cell = obj.cell #world_to_map(obj.position)
+	print('hookshot move ' + str(obj))
 	obj.move(end_cell, global.seconds_per_move/2)
 	set_cellv(start_cell, -1)
 	set_cellv(end_cell, obj.type)
@@ -471,9 +473,6 @@ func grab_object(grabobj, grabber, direction):
 	if daytime == NIGHT.NIGHT:
 		obj.set_night()
 	grabber.set_decendant(obj)
-	
-	
-	
 	
 	if grabber.type != VINESHOOT:
 		obj.set_ancestor(grabber)

@@ -88,11 +88,14 @@ func set_level_titles():
 				Nvisible = 20
 			else:
 				Nvisible = global.highest_seen_level - 200
-				
+	print(difficulty)
+	print(Nvisible)
 	for i in range(n):
 		menu_items[i].text = labels[i]
 		if i >= Nvisible:
 			menu_items[i].visible=false
+		else:
+			menu_items[i].visible=true
 
 func configure_focus():
 	var iprev

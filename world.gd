@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 
-enum FLAVORS {MOKOU, KAGUYA}
+enum FLAVORS {MOKOU, KAGUYA, REISEN, ZANMU}
 enum NIGHT {DAY, NIGHT}
 
 export(FLAVORS) var flavor = FLAVORS.MOKOU
